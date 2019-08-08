@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<!-- <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
@@ -18,4 +18,24 @@
   </li>
 </ul>
 
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+
+<div style="text-align: center;">
+  <h1>Hola Mundo soy {{ title }}</h1>
+  <p>Soy {{ destino }}</p>
+</div>
+<div>
+  <form style="text-align: center;">
+    <div class="form-group">
+      <label for="nombre">Nombre:&nbsp;</label>
+      <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nompre completo">
+    </div>
+    <div >
+      <label for="apellido">Apellido:&nbsp;</label>
+      <input type="text" name="apellido" id="apellido" placeholder="Ingrese sus apellidos">
+    </div>
+    <button class="btn btn-success">Guardar</button>
+  </form>
+</div>
+<br>
+<app-fechaactual style="text-align: center;"></app-fechaactual>
