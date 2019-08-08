@@ -1,0 +1,210 @@
+npm -v
+tsc -v
+node -v
+C:\Users\Carlos Buitrón>npm install -g @angular/cli
+C:\Users\Carlos Buitrón\Documents\NetBeansProjects\ProyectoUtp>ng new appCurso
+
+importante paquete donde estan las librerias de angular
+package.js
+
+C:\Users\Carlos Buitrón\Documents\NetBeansProjects\ProyectoUtp\appCurso>ng serve
+
+C:\Users\Carlos Buitrón\Documents\NetBeansProjects\ProyectoUtp\appCurso>ng serve --port xxxx
+
+Componentes: Es un conjunto de archivos por ejemplo *.html y *.css (definen la plantilla y estilo), *.ts 
+(define la logica del componente)
+xyz.component.extension
+
+Ejemplo:
+
+import { Component } from '@angular/core'; Importa la clase "Component" de '@angular/core'paquete de angular en node_modules.
+
+@Component({ El modulo Component utiliza el decorador @Component
+  selector: 'app-root', selector indica que app.component.html se va renderizar en donde ponga la etiqueta 'app-root'.
+  templateUrl: './app.component.html', templateUrl indica donde esta ubicado la plantilla component
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'appCurso';
+}
+
+
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent Se declara las clases de los componentes que vamos utilizar.
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+Existe dos formas de crear un componente:
+
+Crear un componente de manera manual
+------------------------------------
+
+Los componentes se coloca donde se quiera pero es una buena practica crearlos dentro del directorio "app". 
+Creado el directorio app/carpetaNueva se crea los archivos del componente ".ts", "html" y ".css".
+
+En fichero ".ts" -> nombreComponente.component.ts
+En fichero ".html" -> nombreComponente.component.html
+En fichero ".css" -> nombreComponente.component.css
+
+Trabajar en el fichero "nombreComponente.component.ts" importar el/los docorador(es)
+
+sintaxis: import { component } from 'angular/core';
+
+	  @Component ({
+	     objeto (selector, templateUrl, styleUrlsRls [])
+           )}
+
+obs: Respetar nomenclatura para metadato selector
+
+* selector:'app-nombreComponente' es la etiqueta donde se va renderizar
+
+* templateUrl: './nombreComponente'.component.html'
+
+* styleUrls: ['./nombreComponente'.component.css']
+
+Finalmente exportar la clase:
+
+export class NombreClase{
+  hoy = new Date();
+}
+
+Agregar "NombreClase" a "app.module.ts"
+
+Debemos tener en cuenta la plantilla del componente raiz: 
+
+app.component.html 
+app.component.css
+app.component.ts
+
+
+Crear un componente con angular CLI
+------------------------------------
+
+C:\Users\Carlos Buitrón\Documents\NetBeansProjects\ProyectoUtp\appCurso>ng generate component copyright --spec false
+Option "spec" is deprecated: Use "skipTests" instead.
+CREATE src/app/copyright/copyright.component.html (24 bytes)
+CREATE src/app/copyright/copyright.component.ts (281 bytes)
+CREATE src/app/copyright/copyright.component.css (0 bytes)
+UPDATE src/app/app.module.ts (487 bytes)
+
+
+GIT
+---
+
+C:\Users\Carlos Buitrón>git --version
+git version 2.21.0.windows.1
+
+Me ubico en mi carpeta donde se encuentra mi proyecto.
+
+- Debemos de configurar nuestro nombre y correo electronico:
+C:\Users\Carlos Buitrón>git config --global user.name "cbuitron"
+C:\Users\Carlos Buitrón>git config --global user.name 'cbuitron'
+
+C:\Users\Carlos Buitrón>git config --global user.email 'carlos.buitron.quispe@hotmail.com'
+C:\Users\Carlos Buitrón>git config --global user.email 'carlos.buitron.quispe@hotmail.com'
+
+- Inicializar el repositorio
+C:\Users\Carlos Buitrón\Documents\NetBeansProjects\ProyectoUtp\appCurso>git status
+
+Agregar un fichero:
+C:\Users\Carlos Buitrón\Documents\NetBeansProjects\ProyectoUtp\appCurso>git add nombreFichero.extension
+
+Remover el fichero:
+C:\Users\Carlos Buitrón\Documents\NetBeansProjects\ProyectoUtp\appCurso>git rm --cached nombreFichero.extension
+
+Commit:
+C:\Users\Carlos Buitrón\Documents\NetBeansProjects\ProyectoUtp\appCurso>git commit -m "Proyecto angular"
+
+Caso: Regresar a una version anterior al codigo se utiliza f0435ee
+
+C:\Users\Carlos Buitrón\Documents\NetBeansProjects\ProyectoUtp\appCurso>git commit -m "Proyecto angular"
+[master f0435ee] Proyecto angular
+ 15 files changed, 95 insertions(+), 20 deletions(-)
+ create mode 100644 nbproject/project.properties
+ create mode 100644 nbproject/project.xml
+ delete mode 100644 src/app/app-routing.module.ts
+ create mode 100644 src/app/copyright/copyright.component.css
+ create mode 100644 src/app/copyright/copyright.component.html
+ create mode 100644 src/app/copyright/copyright.component.ts
+ create mode 100644 src/app/fechaActual/fechaactual.component.css
+ create mode 100644 src/app/fechaActual/fechaactual.component.html
+ create mode 100644 src/app/fechaActual/fechaactual.component.ts
+
+
+…or create a new repository on the command line
+echo "# ProyectoIntegrador" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/cbuitron2019/ProyectoIntegrador.git
+git push -u origin master
+
+https://github.com/cbuitron2019/ProyectoIntegrador.git
+
+
+http://plugins.netbeans.org/plugin/73937/nbangularcli
+https://github.com/Chris2011/NBAngularCLI
+
+https://www.youtube.com/watch?v=O13X14TGtm8
+Crud en Angular + Spring de Java + MySQL - Servicio Web - Parte 01
+
+https://www.youtube.com/watch?v=xLPq6iDkfpA&list=PL_9MDdjVuFjEysdD_jFmrd4PfbqWcvYPA&index=14
+Login Angular 5, Firebase y Bootstrap 4 - Deploy aplicación en Firebase (13)
+
+https://www.youtube.com/channel/UC3QuZuJr2_EOUak8bWUd74A/playlists
+login angular 
+
+https://mega.nz/#!ayYVWKKa!84bI69E4CCWDMC3OdYLp64DPgsvvdaGMxRIFDwpQX4c
+https://mega.nz/#!ayYVWKKa!84bI69E4CCWDMC3OdYLp64DPgsvvdaGMxRIFDwpQX4c
+
+https://www.youtube.com/channel/UC3QuZuJr2_EOUak8bWUd74A
+Domini Code
+
+https://www.youtube.com/watch?v=IeluJqoiCcA
+Git tutorial español - como empezar con git
+https://dominicode.com/git-como-empezar/
+crear repositorio cmd git init
+
+
+
+
+
+
+
+
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+
